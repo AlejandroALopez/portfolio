@@ -1,12 +1,15 @@
 import Header from "../components/Header";
+import AboutMe from "./AboutMe";
+import CaseStudies from "./CaseStudies";
+import Skills from "./Skills";
 
 export default function Landing() {
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex bg-red-300 flex-col">
       <Header />
-      {/* Intro page */}
+      {/* Intro Page */}
       <section 
-        className="flex flex-row h-full p-12 bg-no-repeat bg-cover bg-center"
+        className="flex flex-row min-h-screen p-12 bg-no-repeat bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/backgroundLanding.jpg')",
         }}
@@ -23,6 +26,12 @@ export default function Landing() {
           </p>
         </div>
       </section>
+      {/* About Me Page */}
+      <AboutMe />
+      {/* Case Studies Page */}
+      <CaseStudies />
+      {/* Skills Page */}
+      <Skills />
     </div>
   );
 }
