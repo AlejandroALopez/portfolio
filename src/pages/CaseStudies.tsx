@@ -1,7 +1,8 @@
 import React from 'react';
+import HexagonIcon from '../assets/hexagonIcon.svg';
 
 interface ProjectItemProps {
-  project: IProject
+    project: IProject
 }
 
 interface IProject {
@@ -33,12 +34,12 @@ const projects: IProject[] = [
 
 export default function CaseStudies() {
     return (
-        <section className="flex flex-col min-h-screen bg-[#171C19] gap-12">
+        <section className="flex flex-col min-h-screen bg-blackBg gap-12 p-12 pb-24">
             <div className="flex flex-col gap-6 my-12">
-                <p className="text-white">Case Studies</p>
-                <p className="text-white">Here are some of the projects I am proud of. If you want to know more, feel free to reach out.</p>
+                <p className="text-3xl font-medium">Case Studies</p>
+                <p className="w-5/12 text-lg">Here are some of the projects I am proud of. If you want to know more, feel free to reach out.</p>
             </div>
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-18">
                 {projects.map((project) => (
                     <ProjectItem project={project} />
                 ))}
@@ -51,10 +52,19 @@ export default function CaseStudies() {
 
 const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
     return (
-        <div className="flex flex-col gap-4 bg-[#1F262E]">
-            <p>{project.title}</p>
-            <p>{project.description}</p>
-            <p>Technologies: {project.technologies}</p>
+        <div className='relative'>
+            <img src={HexagonIcon} alt="hexagon icon" className='w-16 h-auto absolute left-0 bottom-36' />
+            <div className="flex flex-row p-8 mx-8 bg-darkPrimary rounded-sm gap-12">
+                <div className="flex flex-col gap-3">
+                    <p className="font-medium text-2xl">{project.title}</p>
+                    <p>{project.description}</p>
+                    <p><span className='font-semibold'>Technologies:</span>&emsp;{project.technologies}</p>
+                </div>
+                <button className="self-end border-2 border-primary text-primary text-xl rounded-md h-16 w-48 cursor-pointer">
+                    read more
+                </button>
+            </div>
         </div>
+
     );
 }

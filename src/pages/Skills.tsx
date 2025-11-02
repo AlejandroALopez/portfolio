@@ -65,11 +65,11 @@ const skills: ISkill[] = [
 
 export default function Skills() {
     return (
-        <section className="flex flex-col min-h-screen bg-[#1F262E] p-12 gap-12">
+        <section className="flex flex-col min-h-screen bg-blueBg p-12 gap-12">
             <div className="flex flex-col">
-                <h1 className="text-3xl text-white">Skills</h1>
+                <h1 className="text-3xl font-medium">Skills</h1>
             </div>
-            <div className="flex flex-col gap-6 bg-[#171C19] p-8">
+            <div className="flex flex-col gap-6 bg-darkPrimary p-8">
                 {skills.map((skill) => (
                     <SkillItem skill={skill} />
                 ))}
@@ -94,14 +94,14 @@ const SkillItem: React.FC<SkillsItemProps> = ({ skill }) => {
                 <div className='flex flex-col'>
                     {(skill.toolsTitle1 && skill.tools1) && (
                         <p>
-                            <span className="font-bold">{skill.toolsTitle1}:</span>
+                            <span className="font-semibold">{skill.toolsTitle1}:</span>
                             &emsp;
                             {skill.tools1}
                         </p>
                     )}
                     {(skill.toolsTitle2 && skill.tools2) && (
                         <p>
-                            <span className="font-bold">{skill.toolsTitle2}:</span>
+                            <span className="font-semibold">{skill.toolsTitle2}:</span>
                             &emsp;
                             {skill.tools2}
                         </p>
