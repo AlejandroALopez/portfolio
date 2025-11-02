@@ -1,7 +1,19 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-primary: #13D975;
+  --color-blackBg: #0A0A0A;
+  --color-whiteBg: #E6E6E6;
+
+  --color-blackText: #0A0A0A;
+  --color-whiteText: #F5F5F5;
+  --color-grayText: #333333;
+}
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
