@@ -39,9 +39,9 @@ export default function AboutMe() {
                 <p className="text-xl">{data.paragraph1}</p>
                 <div className="flex flex-col gap-2 my-12">
                     <p className="text-xl">My personal interests include:</p>
-                    <ul className="text-xl">
+                    <ul className="list-disc list-inside text-xl">
                         {data.interests.map((item, index) => (
-                            <li className="" key={`interest-${index}`}>- {item}</li>
+                            <li className="" key={`interest-${index}`}>{item}</li>
                         ))}
                     </ul>
                 </div>
