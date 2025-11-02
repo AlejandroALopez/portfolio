@@ -2,29 +2,42 @@ import Header from "../components/Header";
 import AboutMe from "./AboutMe";
 import CaseStudies from "./CaseStudies";
 import Skills from "./Skills";
+import landingPattern from '../assets/landingPattern.svg';
 
 export default function Landing() {
   return (
     <div className="flex flex-col">
       <Header />
       {/* Intro Page */}
-      <section 
-        className="flex flex-row min-h-screen p-12 bg-no-repeat bg-cover bg-center"
+      <section
+        className="flex flex-row min-h-screen py-12 px-24 bg-no-repeat bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/backgroundLanding.jpg')",
         }}
       >
-        <div className="flex flex-col self-end gap-4 border-2 p-4 mb-12 border-white max-w-1/2 text-whiteText">
-          <p className="text-5xl">Alex Lopez</p>
-          <p className="text-lg">
-            <span className="text-primary">Full Stack Software Engineer</span>
-            {' '}| Automations and Data-Driven Systems
+        <div className="flex flex-col self-end gap-6 max-w-7/12 text-lightGrayText">
+          <p className="text-7xl font-medium text-whiteText">Alex Lopez</p>
+          <p className="text-3xl">
+            <span className="text-primary">Full Stack Software Engineer</span> | <br></br>
+            Automations and Data-Driven Systems
           </p>
-          <p className="text-lg">
-            I build full-stack applications that combine 
+          <p className="text-xl">
+            I build full-stack applications that combine
             <span className="text-primary"> clean design, smart automation, and data-driven insight.</span>
           </p>
+          <div className="flex flex-row gap-12 mt-6">
+            <button className="border-2 border-primary text-primary text-xl rounded-md h-20 w-72 cursor-pointer">
+              contact me
+            </button>
+            <button className="border-2 border-primary text-primary text-xl rounded-md h-20 w-72 cursor-pointer">
+              download resume
+            </button>
+          </div>
         </div>
+        <img 
+        src={landingPattern} 
+        alt="landing pattern" 
+        className="absolute right-0 top-18 w-[35%] h-auto max-h-11/12 object-contain" />
       </section>
       {/* About Me Page */}
       <AboutMe />
