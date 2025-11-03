@@ -34,7 +34,7 @@ const projects: IProject[] = [
 
 export default function CaseStudies() {
     return (
-        <section className="flex flex-col min-h-screen bg-blackBg gap-12 p-12 pb-24">
+        <section id="projects" className="flex flex-col min-h-screen bg-blackBg gap-12 p-12 pb-24">
             <div className="flex flex-col gap-6 my-12">
                 <p className="text-3xl font-medium">Case Studies</p>
                 <p className="w-5/12 text-lg">Here are some of the projects I am proud of. If you want to know more, feel free to reach out.</p>

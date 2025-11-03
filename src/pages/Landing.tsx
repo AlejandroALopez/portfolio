@@ -11,6 +11,7 @@ export default function Landing() {
       <Header />
       {/* Intro Page */}
       <section
+        id="home"
         className="flex flex-row min-h-screen py-12 px-24 bg-no-repeat bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/backgroundLanding.jpg')",

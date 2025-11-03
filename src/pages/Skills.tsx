@@ -65,7 +65,7 @@ const skills: ISkill[] = [
 
 export default function Skills() {
     return (
-        <section className="flex flex-col min-h-screen bg-blueBg p-12 gap-12">
+        <section id="skills" className="flex flex-col min-h-screen bg-blueBg p-12 pt-24 gap-12">
             <div className="flex flex-col">
                 <h1 className="text-3xl font-medium">Skills</h1>
             </div>
