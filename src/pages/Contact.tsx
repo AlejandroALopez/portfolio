@@ -9,7 +9,8 @@ export default function Contact() {
     const [message, setMessage] = useState<string>("");
 
     // send email to portfolio owner
-    const submit = () => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         console.log("Name: ", name);
         console.log("Email: ", email);
         console.log("Message: ", message);
@@ -26,7 +27,7 @@ export default function Contact() {
                     </div>
                 </div>
                 {/* Form fields */}
-                <form onSubmit={submit} className="flex flex-col gap-4">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div className="flex flex-col gap-1">
                         <p className="text-xl">Name</p>
                         <input
@@ -59,7 +60,7 @@ export default function Contact() {
                     </div>
                     <button 
                         className="w-full border-2 border-black rounded-sm p-4 mt-4 cursor-pointer"
-                        onClick={submit}
+                        type="submit"
                     >
                         Send Message
                     </button>
