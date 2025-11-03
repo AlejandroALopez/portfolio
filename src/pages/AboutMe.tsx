@@ -33,7 +33,7 @@ export default function AboutMe() {
             />
             <div className="flex flex-col gap-4 my-12 text-blackText mr-24">
                 <div className="flex flex-col gap-2 my-12">
-                    <p className=" font-montserrat font-medium text-4xl">About me</p>
+                    <p className="font-medium text-4xl">About me</p>
                     <p className="text-grayText text-2xl font-normal">{data.subtitle}</p>
                 </div>
                 <p className="text-xl">{data.paragraph1}</p>

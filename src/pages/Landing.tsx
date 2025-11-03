@@ -3,6 +3,7 @@ import AboutMe from "./AboutMe";
 import CaseStudies from "./CaseStudies";
 import Skills from "./Skills";
 import landingPattern from '../assets/landingPattern.svg';
+import Contact from "./Contact";
 
 export default function Landing() {
   return (
@@ -45,6 +46,8 @@ export default function Landing() {
       <CaseStudies />
       {/* Skills Page */}
       <Skills />
+      {/* Contact Page */}
+      <Contact />
     </div>
   );
 }
