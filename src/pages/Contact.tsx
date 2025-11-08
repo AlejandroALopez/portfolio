@@ -67,7 +67,7 @@ export default function Contact() {
                 </form>
             </div>
             {/* Right side */}
-            <div className="flex flex-col gap-4 text-lg">
+            <div className="hidden md:flex flex-col gap-4 text-lg">
                 <button className="flex flex-row gap-3 cursor-pointer">
                     <img src={mailIcon} alt="mail" />
                     <p>Email</p>
