@@ -7,7 +7,7 @@ import Contact from "./Contact";
 
 export default function Landing() {
   return (
-    <div className="flex flex-col w-fit">
+    <div className="flex flex-col max-w-screen">
       <Header />
       {/* Intro Page */}
       <section

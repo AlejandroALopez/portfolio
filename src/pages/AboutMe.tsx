@@ -27,19 +27,20 @@ export default function AboutMe() {
     return (
         <section id="about" className="flex flex-col md:flex-row min-h-screen bg-whiteBg gap-12">
             <img
-                className="w-full max-w-[600px] h-auto object-contain"
+                //className="hidden lg:flex max-w-[600px] w-4/12"
+                 className="hidden lg:flex w-5/12"
                 src={AboutMeImage}
                 alt="about me image"
             />
-            <div className="flex flex-col gap-4 my-12 text-blackText mr-24">
-                <div className="flex flex-col gap-2 my-12">
-                    <p className="font-medium text-4xl">About me</p>
-                    <p className="text-grayText text-2xl font-normal">{data.subtitle}</p>
+            <div className="flex flex-col gap-8 lg:gap-12 my-12 text-blackText py-4 px-12 lg:px-0 lg:pr-24">
+                <div className="flex flex-col gap-2">
+                    <p className="font-medium text-3xl md:text-4xl">About me</p>
+                    <p className="text-grayText text-xl md:text-2xl font-normal">{data.subtitle}</p>
                 </div>
-                <p className="text-xl">{data.paragraph1}</p>
-                <div className="flex flex-col gap-2 my-12">
-                    <p className="text-xl">My personal interests include:</p>
-                    <ul className="list-disc list-inside text-xl">
+                <p className="text-md md:text-lg xl:text-xl">{data.paragraph1}</p>
+                <div className="flex flex-col gap-2">
+                    <p className="text-md md:text-lg xl:text-xl">My personal interests include:</p>
+                    <ul className="list-disc list-inside text-md md:text-lg xl:text-xl">
                         {data.interests.map((item, index) => (
                             <li className="" key={`interest-${index}`}>{item}</li>
                         ))}
