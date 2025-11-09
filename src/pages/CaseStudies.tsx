@@ -34,12 +34,12 @@ const projects: IProject[] = [
 
 export default function CaseStudies() {
     return (
-        <section id="caseStudies" className="flex flex-col min-h-screen bg-blackBg gap-12 p-12 pb-24">
-            <div className="flex flex-col gap-6 my-12">
-                <p className="text-3xl font-medium">Case Studies</p>
-                <p className="w-5/12 text-lg">Here are some of the projects I am proud of. If you want to know more, feel free to reach out.</p>
+        <section id="caseStudies" className="flex flex-col min-h-screen bg-blackBg gap-4 p-12 pb-24">
+            <div className="flex flex-col gap-6 mt-12">
+                <p className="font-medium text-3xl md:text-4xl">Case Studies</p>
+                <p className="max-w-9/12 text-md md:text-lg">Here are some of the projects I am proud of. If you want to know more, feel free to reach out.</p>
             </div>
-            <div className="flex flex-col gap-18">
+            <div className="flex flex-col gap-2">
                 {projects.map((project) => (
                     <ProjectItem project={project} />
                 ))}
@@ -53,14 +53,14 @@ export default function CaseStudies() {
 const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
     return (
         <div className='relative'>
-            <img src={HexagonIcon} alt="hexagon icon" className='w-16 h-auto absolute left-0 bottom-36' />
-            <div className="flex flex-row p-8 mx-8 bg-darkPrimary rounded-sm gap-12">
+            <img src={HexagonIcon} alt="hexagon icon" className='w-12 md:w-16 h-auto relative left-2 md:left-0 top-8' />
+            <div className="flex flex-col lg:flex-row p-8 mx-8 bg-darkPrimary rounded-sm gap-6 md:gap-12">
                 <div className="flex flex-col gap-3">
-                    <p className="font-medium text-2xl">{project.title}</p>
+                    <p className="font-medium text-lg md:text-2xl">{project.title}</p>
                     <p>{project.description}</p>
                     <p><span className='font-semibold'>Technologies:</span>&emsp;{project.technologies}</p>
                 </div>
-                <button className="self-end border-2 border-primary text-primary text-xl rounded-md h-16 w-48 cursor-pointer">
+                <button className="self-end bg-blackBg/30 hover:bg-blackBg/70 border-2 border-primary text-primary text-lg lg:text-xl rounded-md h-12 lg:h-16 w-full lg:w-64 cursor-pointer">
                     read more
                 </button>
             </div>

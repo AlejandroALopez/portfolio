@@ -17,7 +17,7 @@ export default function Contact() {
     }
 
     return (
-        <section id="contact" className="flex flex-row justify-between min-h-screen bg-whiteBg text-blackText p-18 pt-36">
+        <section id="contact" className="flex flex-row justify-between min-h-screen bg-whiteBg text-blackText p-18 py-24">
             {/* Left side */}
             <div className="flex flex-col gap-12">
                 <div className="flex flex-col gap-4">

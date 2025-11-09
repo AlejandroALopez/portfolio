@@ -25,7 +25,7 @@ const data: IData = {
 
 export default function AboutMe() {
     return (
-        <section id="about" className="flex flex-col md:flex-row min-h-screen bg-whiteBg gap-12">
+        <section id="about" className="flex flex-col md:flex-row min-h-screen bg-whiteBg gap-12 pt-12">
             <img
                 //className="hidden lg:flex max-w-[600px] w-4/12"
                  className="hidden lg:flex w-5/12"

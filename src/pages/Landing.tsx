@@ -20,7 +20,7 @@ export default function Landing() {
         <div className="flex flex-col self-end gap-6 max-w-8/12 sm: text-lightGrayText">
           <p className=" mt-48 text-4xl md:text-6xl xl:text-7xl font-medium text-whiteText">Alex Lopez</p>
           <p className="text-xl md:text-2xl lg:text-3xl">
-            <span className="text-primary">Full Stack Software Engineer</span> | <br></br>
+            <span className="text-primary">Full Stack Software Engineer</span> | <br className="max-sm:hidden"></br>
             Automations and Data-Driven Systems
           </p>
           <p className="text-md md:text-lg lg:text-xl">
