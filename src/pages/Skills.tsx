@@ -65,9 +65,9 @@ const skills: ISkill[] = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="flex flex-col min-h-screen bg-blueBg p-12 pt-24 gap-12">
+        <section id="skills" className="flex flex-col min-h-screen bg-blueBg p-6 md:p-12 pt-24 gap-6 md:gap-12">
             <div className="flex flex-col">
-                <h1 className="text-3xl font-medium">Skills</h1>
+                <h1 className="font-medium text-3xl md:text-4xl">Skills</h1>
             </div>
             <div className="flex flex-col gap-6 bg-darkPrimary p-8">
                 {skills.map((skill) => (
@@ -85,13 +85,13 @@ const SkillItem: React.FC<SkillsItemProps> = ({ skill }) => {
             <div className="flex flex-col gap-3">
                 <div className='flex flex-col'>
                     <div className='flex flex-row gap-4'>
-                        <img src={BulletPoint} alt={"bullet point icon"} />
-                        <p className='text-2xl font-medium'>{skill.title}</p>
+                        <img className='max-sm:h-6 h-auto' src={BulletPoint} alt={"bullet point icon"} />
+                        <p className='text-lg md:text-2xl font-medium'>{skill.title}</p>
                     </div>
-                    <p className='text-xl text-grayText2'>{skill.subtitle}</p>
+                    <p className='max-sm:ml-7 text-md md:text-xl text-grayText2'>{skill.subtitle}</p>
                 </div>
-                <p>{skill.description}</p>
-                <div className='flex flex-col'>
+                <p className='max-sm:ml-7'>{skill.description}</p>
+                <div className='flex flex-col max-sm:ml-7'>
                     {(skill.toolsTitle1 && skill.tools1) && (
                         <p>
                             <span className="font-semibold">{skill.toolsTitle1}:</span>
