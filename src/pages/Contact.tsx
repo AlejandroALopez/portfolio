@@ -17,21 +17,21 @@ export default function Contact() {
     }
 
     return (
-        <section id="contact" className="flex flex-row justify-between min-h-screen bg-whiteBg text-blackText p-18 py-24">
+        <section id="contact" className="flex flex-col lg:flex-row justify-between min-h-screen bg-whiteBg text-blackText p-18 py-24 max-lg:gap-8">
             {/* Left side */}
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-6 md:gap-12">
                 <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-3">
-                        <p className="font-medium text-4xl">Let's work together</p>
-                        <p className="text-2xl">Have an idea that needs development? Let's talk!</p>
+                        <p className="font-medium text-3xl md:text-4xl">Let's work together</p>
+                        <p className="text-xl md:text-2xl">Have an idea that needs development? Let's talk!</p>
                     </div>
                 </div>
                 {/* Form fields */}
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div className="flex flex-col gap-1">
-                        <p className="text-xl">Name</p>
+                        <p className="text-lg md:text-xl">Name</p>
                         <input
-                            className="border-2 border-black rounded-sm p-2"
+                            className="border sm:border-2 border-black rounded-sm p-2"
                             type="text"
                             required
                             value={name}
@@ -39,9 +39,9 @@ export default function Contact() {
                         />
                     </div>
                     <div className="flex flex-col gap-1">
-                        <p className="text-xl">Email</p>
+                        <p className="text-lg md:text-xl">Email</p>
                         <input
-                            className="border-2 border-black rounded-sm p-2"
+                            className="border sm:border-2 border-black rounded-sm p-2"
                             type="email"
                             required
                             value={email}
@@ -49,9 +49,9 @@ export default function Contact() {
                         />
                     </div>
                     <div className="flex flex-col gap-1">
-                        <p className="text-xl">Message</p>
+                        <p className="text-lg md:text-xl">Message</p>
                         <textarea
-                            className="border-2 border-black rounded-sm p-2"
+                            className="border sm:border-2 border-black rounded-sm p-2"
                             rows={6}
                             required
                             value={message}
@@ -59,7 +59,7 @@ export default function Contact() {
                         />
                     </div>
                     <button 
-                        className="w-full border-2 border-black rounded-sm p-4 mt-4 cursor-pointer"
+                        className="w-full border sm:border-2 border-black rounded-sm p-4 mt-4 cursor-pointer"
                         type="submit"
                     >
                         Send Message
@@ -67,7 +67,7 @@ export default function Contact() {
                 </form>
             </div>
             {/* Right side */}
-            <div className="hidden md:flex flex-col gap-4 text-lg">
+            <div className="flex flex-row lg:flex-col max-lg:justify-center gap-4 text-md lg:text-lg">
                 <button className="flex flex-row gap-3 cursor-pointer">
                     <img src={mailIcon} alt="mail" />
                     <p>Email</p>

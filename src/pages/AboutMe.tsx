@@ -25,14 +25,14 @@ const data: IData = {
 
 export default function AboutMe() {
     return (
-        <section id="about" className="flex flex-col md:flex-row min-h-screen bg-whiteBg gap-12 pt-12">
+        <section id="about" className="flex flex-col md:flex-row min-h-screen bg-whiteBg gap-12 max-lg:pt-12">
             <img
                 //className="hidden lg:flex max-w-[600px] w-4/12"
                  className="hidden lg:flex w-5/12"
                 src={AboutMeImage}
                 alt="about me image"
             />
-            <div className="flex flex-col gap-8 lg:gap-12 my-12 text-blackText py-4 px-12 lg:px-0 lg:pr-24">
+            <div className="flex flex-col gap-8 lg:gap-12 my-12 text-blackText py-4 px-12 lg:px-0 lg:pr-24 lg:pt-12">
                 <div className="flex flex-col gap-2">
                     <p className="font-medium text-3xl md:text-4xl">About me</p>
                     <p className="text-grayText text-xl md:text-2xl font-normal">{data.subtitle}</p>
