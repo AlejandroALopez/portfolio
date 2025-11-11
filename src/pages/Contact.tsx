@@ -8,6 +8,12 @@ export default function Contact() {
     const [email, setEmail] = useState<string>("");
     const [message, setMessage] = useState<string>("");
 
+    const contactLinks: { [key: string]: string } = {
+        github: "https://github.com/AlejandroALopez",
+        linkedIn: "https://www.linkedin.com/in/alejandro-a-lopez",
+        email: "alejandro.a.lopez.0907@gmail.com"
+    }
+
     // send email to portfolio owner
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -58,7 +64,7 @@ export default function Contact() {
                             onChange={(e) => setMessage(e.target.value)}
                         />
                     </div>
-                    <button 
+                    <button
                         className="w-full border sm:border-2 border-black rounded-sm p-4 mt-4 cursor-pointer"
                         type="submit"
                     >
@@ -68,15 +74,21 @@ export default function Contact() {
             </div>
             {/* Right side */}
             <div className="flex flex-row lg:flex-col max-lg:justify-center gap-4 text-md lg:text-lg">
-                <button className="flex flex-row gap-3 cursor-pointer">
+                <a href={`mailto:${contactLinks.email}`} className="flex flex-row gap-3 cursor-pointer">
                     <img src={mailIcon} alt="mail" />
-                    <p>Email</p>
-                </button>
-                <button className="flex flex-row gap-3 cursor-pointer">
+                    <p className="text-blackText hover:text-blackText visited:text-blackText font-normal">Email</p>
+                </a>
+                <button
+                    onClick={() => window.open(contactLinks.github, '_blank')}
+                    className="flex flex-row gap-3 cursor-pointer appearance-none"
+                >
                     <img src={githubIcon} alt="github" />
                     <p>GitHub</p>
                 </button>
-                <button className="flex flex-row gap-3 cursor-pointer">
+                <button
+                    onClick={() => window.open(contactLinks.linkedIn, '_blank')}
+                    className="flex flex-row gap-3 cursor-pointer"
+                >
                     <img src={linkedinIcon} alt="linkedin" />
                     <p>LinkedIn</p>
                 </button>
