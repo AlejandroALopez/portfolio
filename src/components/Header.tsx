@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import logo from '../assets/Logo.svg';
 import menu from '../assets/menu.svg';
+import { scrollToSection } from '../utils/constants';
 
 interface ISection {
   id: string,
@@ -14,13 +15,6 @@ const sections: ISection[] = [
   { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];
-
-const scrollToSection = (id: string) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState<boolean>(false);

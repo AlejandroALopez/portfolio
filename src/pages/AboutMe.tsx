@@ -14,6 +14,7 @@ const data: IData = {
             I enjoy turning uncertainty into structure and ideas into systems that work.`,
     interests: [
         "UI/UX design with Figma",
+        "Game Dev (Learning Godot to make indie 2D games)",
         "Productivity Systems (Word/Excel files to plan everything)",
         "Cuisine (Peruvian, Italian, you name it!)",
         "Reading (Classics, Manga)",
@@ -42,7 +43,7 @@ export default function AboutMe() {
                     <p className="text-md md:text-lg xl:text-xl">My personal interests include:</p>
                     <ul className="list-disc list-inside text-md md:text-lg xl:text-xl">
                         {data.interests.map((item, index) => (
-                            <li className="" key={`interest-${index}`}>{item}</li>
+                            <li className="mt-1" key={`interest-${index}`}>{item}</li>
                         ))}
                     </ul>
                 </div>
