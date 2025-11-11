@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Header from "../components/Header";
 import AboutMe from "./AboutMe";
 import CaseStudies from "./CaseStudies";
@@ -19,32 +20,68 @@ export default function Landing() {
         }}
       >
         <div className="flex flex-col self-end gap-6 max-w-8/12 sm: text-lightGrayText">
-          <p className=" mt-48 text-4xl md:text-6xl xl:text-7xl font-medium text-whiteText">Alex Lopez</p>
-          <p className="text-xl md:text-2xl lg:text-3xl">
+          <motion.p
+            initial={{ opacity: 0, y: -20, x: -20, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "linear", delay: 0.7 * 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className=" mt-48 text-4xl md:text-6xl xl:text-7xl font-medium text-whiteText"
+          >
+            Alex Lopez
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: -20, x: -20, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "linear", delay: 0.7 * 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-xl md:text-2xl lg:text-3xl"
+          >
             <span className="text-primary">Full Stack Software Engineer</span> | <br className="max-sm:hidden"></br>
             Automations and Data-Driven Systems
-          </p>
-          <p className="text-md md:text-lg lg:text-xl">
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: -20, x: -20, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "linear", delay: 0.7 * 2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-md md:text-lg lg:text-xl"
+          >
             I build full-stack applications that combine
             <span className="text-primary"> clean design, smart automation, and data-driven insight.</span>
-          </p>
+          </motion.p>
           {/* Buttons Container */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-12 mt-6">
-            <button
-              className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl rounded-md h-20 w-full sm:w-72 cursor-pointer"
+          <div
+            className="flex flex-col sm:flex-row gap-4 sm:gap-12 mt-6"
+          >
+            <motion.button
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, ease: "linear", delay: 0.7 * 3 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl 
+              rounded-md h-20 w-full sm:w-72 cursor-pointer"
               onClick={() => scrollToSection("contact")}
             >
               contact me
-            </button>
-            <button
-              className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl rounded-md h-20 w-full sm:w-72 cursor-pointer"
+            </motion.button>
+            <motion.button
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, ease: "linear", delay: 0.7 * 3.2 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl 
+              rounded-md h-20 w-full sm:w-72 cursor-pointer"
               onClick={() => window.open('/resume.pdf', '_blank')}
             >
               download resume
-            </button>
+            </motion.button>
           </div>
         </div>
-        <img
+        <motion.img
+          initial={{ opacity: 0, scale: 0.98}}
+          whileInView={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.7, ease: "easeIn", delay: 0.7 * 3.5 }}
+          viewport={{ once: true, amount: 0.2 }}
           src={landingPattern}
           alt="landing pattern"
           className="absolute right-0 top-18 w-5/12 md:w-4/12 h-auto object-contain" />
