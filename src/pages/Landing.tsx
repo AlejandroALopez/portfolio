@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Easing } from "framer-motion";
 import Header from "../components/Header";
 import AboutMe from "./AboutMe";
 import CaseStudies from "./CaseStudies";
@@ -12,6 +12,7 @@ export default function Landing() {
   const animationDuration: number = 0.6;
   const animationXStart: number = -10;
   const animationYStart: number = -10;
+  const animationEase: Easing = "linear";
 
   return (
     <div className="flex flex-col max-w-screen">
@@ -28,7 +29,7 @@ export default function Landing() {
           <motion.p
             initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-            transition={{ duration: animationDuration, ease: "linear", delay: animationDelay * 0 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 0 }}
             viewport={{ once: true, amount: 0.2 }}
             className=" mt-48 text-4xl md:text-6xl xl:text-7xl font-medium text-whiteText"
           >
@@ -37,7 +38,7 @@ export default function Landing() {
           <motion.p
             initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-            transition={{ duration: animationDuration, ease: "linear", delay: animationDelay * 1 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 1 }}
             viewport={{ once: true, amount: 0.2 }}
             className="text-xl md:text-2xl lg:text-3xl"
           >
@@ -47,7 +48,7 @@ export default function Landing() {
           <motion.p
             initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-            transition={{ duration: animationDuration, ease: "linear", delay: animationDelay * 2 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2 }}
             viewport={{ once: true, amount: 0.2 }}
             className="text-md md:text-lg lg:text-xl"
           >
@@ -61,7 +62,7 @@ export default function Landing() {
             <motion.button
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: animationDuration, ease: "linear", delay: animationDelay * 3 }}
+              transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 3 }}
               viewport={{ once: true, amount: 0.2 }}
               className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl 
               rounded-md h-20 w-full sm:w-72 cursor-pointer"
@@ -72,7 +73,7 @@ export default function Landing() {
             <motion.button
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: animationDuration, ease: "linear", delay: animationDelay * 3.2 }}
+              transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 3.2 }}
               viewport={{ once: true, amount: 0.2 }}
               className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl 
               rounded-md h-20 w-full sm:w-72 cursor-pointer"
@@ -83,9 +84,9 @@ export default function Landing() {
           </div>
         </div>
         <motion.img
-          initial={{ opacity: 0, scale: 0.98}}
-          whileInView={{ opacity: 1, scale: 1 }} 
-          transition={{ duration: animationDuration, ease: "easeIn", delay: animationDelay * 3.5 }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 3.5 }}
           viewport={{ once: true, amount: 0.2 }}
           src={landingPattern}
           alt="landing pattern"
