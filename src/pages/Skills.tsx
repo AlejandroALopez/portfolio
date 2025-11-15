@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, type Easing } from "framer-motion";
 import BulletPoint from '../assets/bulletPointSkills.svg';
 
 interface SkillsItemProps {
@@ -64,24 +65,56 @@ const skills: ISkill[] = [
 ]
 
 export default function Skills() {
+    const animationDelay: number = 0.2;
+    const animationDuration: number = 0.4;
+    const animationXStart: number = 25;
+    const animationYStart: number = 0;
+    const animationEase: Easing = "easeOut";
+
     return (
         <section id="skills" className="flex flex-col min-h-screen bg-blueBg p-6 md:p-12 pb-24 gap-6 md:gap-12">
             <div className="flex flex-col mt-12">
-                <h1 className="font-medium text-3xl md:text-4xl">Skills</h1>
+                <motion.p
+                    className="font-medium text-3xl md:text-4xl"
+                    initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+                    transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                >
+                    Skills
+                </motion.p>
             </div>
-            <div className="flex flex-col gap-6 bg-darkPrimary p-8">
+            <motion.div
+                className="flex flex-col gap-6 bg-darkPrimary p-8"
+                initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+                transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+            >
                 {skills.map((skill) => (
                     <SkillItem skill={skill} />
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 }
 
 
 const SkillItem: React.FC<SkillsItemProps> = ({ skill }) => {
+    const animationDelay: number = 0.2;
+    const animationDuration: number = 0.4;
+    const animationXStart: number = 25;
+    const animationYStart: number = 0;
+    const animationEase: Easing = "easeOut";
+
     return (
-        <div className="flex flex-row">
+        <motion.div
+            className="flex flex-row"
+            initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2 }}
+            viewport={{ once: true, amount: 0.2 }}
+        >
             <div className="flex flex-col gap-3">
                 <div className='flex flex-col'>
                     <div className='flex flex-row gap-4'>
@@ -108,6 +141,6 @@ const SkillItem: React.FC<SkillsItemProps> = ({ skill }) => {
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
