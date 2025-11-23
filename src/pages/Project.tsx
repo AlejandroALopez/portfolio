@@ -1,6 +1,7 @@
 import { motion, type Easing } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { projects, type Project } from "../utils/projectData";
+import { projects, type ContentItem, type Project } from "../utils/projectData";
+import Header from "../components/Header";
 
 
 export default function ProjectPage() {
@@ -21,20 +22,34 @@ export default function ProjectPage() {
     }
 
     return (
-        <section id="project-page" className="flex flex-col md:flex-row min-h-screen bg-whiteBg gap-12 max-lg:pt-12">
-            <div className="flex flex-col gap-8 lg:gap-12 my-12 text-blackText py-4 px-12 lg:px-0 lg:pr-24 lg:pt-12">
-                <div className="flex flex-col gap-2">
-                    <motion.p
-                        className="font-medium text-3xl md:text-4xl"
-                        initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
-                        whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-                        transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                    >
-                        Some project: {project.title}
-                    </motion.p>
+        <div className="flex flex-col max-w-screen">
+            <Header />
+            <section id="project-page" className="flex flex-col items-center min-h-screen bg-whiteBg gap-12">
+                <div className="flex flex-col w-full gap-2 lg:gap-4 my-12 text-blackText py-4 px-4 sm:px-12 lg:px-48 pt-12 lg:pt-24">
+                    <p className="font-medium text-lg text-grayText text-center">Portfolio</p>
+                    <p className="font-medium text-3xl md:text-4xl text-center">{project.title}</p>
                 </div>
-            </div>
-        </section>
+                {/* Content Container */}
+                <div className="flex flex-col gap-12 mx-12 sm:mx-24 lg:mx-36 pb-24">
+                    {project.content.map((contentItem: ContentItem, index: number) => (
+                        <div key={`${project.id}-${index}`}>
+                            {contentItem.type === "text" ? (
+                                <p className="text-blackText text-md sm:text-lg font-medium text-justify">
+                                    {contentItem.textContent}
+                                </p>
+                            ) : contentItem.type === "subtitle" ? (
+                                <p className="text-blackText text-xl sm:text-2xl font-semibold">
+                                    {contentItem.textContent}
+                                </p>
+                            ) : contentItem.type === "image" ? (
+                                <div className="flex justify-center">
+                                    <img src={contentItem.imageIdentifier} alt={contentItem.imageIdentifier} className="max-w-full h-auto rounded-lg shadow-lg" />
+                                </div>
+                            ) : null}
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </div>
     );
 }
