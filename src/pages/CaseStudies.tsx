@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, type Easing } from "framer-motion";
+import { Link } from "react-router-dom";
 import HexagonIcon from '../assets/hexagonIcon.svg';
 
 interface ProjectItemProps {
@@ -7,6 +8,7 @@ interface ProjectItemProps {
 }
 
 interface IProject {
+    id?: string,
     title: string,
     description: string,
     technologies: string,
@@ -14,18 +16,21 @@ interface IProject {
 
 const projects: IProject[] = [
     {
+        id: "jls-systems-dashboard",
         title: "JLS Systems Dashboard: Automated Checks For Company Software",
         description: `Built an internal dashboard for JLS to monitor software services used by 
         multiple departments, speeding fault detection and resolution.`,
         technologies: "React, ASP.NET, TypeScript, C#"
     },
     {
+        id: "bayes-em",
         title: "BayesEM: A Mobile App For Disease Likelihood Computation",
         description: `Worked in a DALI Lab team to build a mobile application that uses Bayesian 
         inference and medical literature to speed up medical diagnoses.`,
         technologies: "React Native, Flask, MongoDB, JavaScript, Python"
     },
     {
+        id: "eq2-app",
         title: "EQ2: App For Lionheart Staff To Support Trauma-Impacted Youth",
         description: `Built an internal dashboard for JLS to monitor software services used by 
         multiple departments, speeding fault detection and resolution.`,
@@ -98,9 +103,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
                     <p>{project.description}</p>
                     <p><span className='font-semibold'>Technologies:</span>&emsp;{project.technologies}</p>
                 </div>
-                <button className="self-end bg-blackBg/30 hover:bg-blackBg/70 border-2 border-primary text-primary text-lg lg:text-xl rounded-md h-12 lg:h-16 w-full lg:w-64 cursor-pointer">
-                    read more
-                </button>
+                <Link 
+                    className="flex items-center justify-center self-end bg-blackBg/30 hover:bg-blackBg/70 border-2 border-primary rounded-md h-12 lg:h-16 w-full lg:w-64 cursor-pointer"
+                    to={`/projects/${project.id}`}
+                    >
+                    <p className='text-primary text-lg lg:text-xl'>read more</p>
+                </Link>
             </div>
         </motion.div>
 

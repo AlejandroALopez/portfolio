@@ -1,10 +1,10 @@
-interface Project {
+export interface Project {
     id: string;
     title: string;
     content: ContentItem[];
 }
 
-interface ContentItem {
+export interface ContentItem {
     type: "text" | "image" | "subtitle";
     imageIdentifier?: string;
     textContent?: string;
@@ -93,7 +93,7 @@ export const projects: Project[] = [
             }]
     },
     {
-        id: "eq2",
+        id: "eq2-app",
         title: "EQ2: An App To Support Staff Working With Trauma-Impacted Youth",
         content: [
             {
