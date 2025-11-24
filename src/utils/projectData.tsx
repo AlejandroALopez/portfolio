@@ -13,14 +13,14 @@ export interface IContentItem {
 }
 
 export const projects: IProject[] = [
-    {
-        id: "jls-systems-dashboard",
-        title: "JLS Systems Dashboard: Automated Checks For Company Software",
-        description: `Built an internal dashboard for JLS to monitor software services used by 
-        multiple departments, speeding fault detection and resolution.`,
-        technologies: "React, ASP.NET, TypeScript, C#",
-        content: []
-    },
+    // {
+    //     id: "jls-systems-dashboard",
+    //     title: "JLS Systems Dashboard: Automated Checks For Company Software",
+    //     description: `Built an internal dashboard for JLS to monitor software services used by 
+    //     multiple departments, speeding fault detection and resolution.`,
+    //     technologies: "React, ASP.NET, TypeScript, C#",
+    //     content: []
+    // },
     {
         id: "bayes-em",
         title: "BayesEM: A Mobile App For Disease Likelihood Computation",
