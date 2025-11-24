@@ -19,6 +19,17 @@ export default function Landing() {
     window.scrollTo(0, 0)
   }, [])
 
+  // Open Reusume in new tab and set title
+  const openResumeTab = () => {
+    var resumeWindow = window.open('/Alex_Lopez_Resume.pdf', '_blank');
+
+    setTimeout(function () {
+      if (resumeWindow) {
+        resumeWindow.document.title = "Alex Lopez Resume";
+      }
+    }, 300);
+  }
+
   return (
     <div className="flex flex-col max-w-screen">
       <Header />
@@ -82,7 +93,7 @@ export default function Landing() {
               viewport={{ once: true, amount: 0.2 }}
               className="border-2 bg-blackBg/30 hover:bg-blackBg/70 duration-300 transition border-primary text-primary text-lg md:text-xl 
               rounded-md h-20 w-full sm:w-72 cursor-pointer"
-              onClick={() => window.open('/resume.pdf', '_blank')}
+              onClick={() => openResumeTab()}
             >
               download resume
             </motion.button>
