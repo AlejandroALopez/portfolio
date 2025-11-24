@@ -67,7 +67,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {
         >
             <img src={HexagonIcon} alt="hexagon icon" className='w-12 md:w-16 h-auto relative left-2 md:left-0 top-8' />
             <div className="flex flex-col lg:flex-row p-8 mx-8 bg-darkPrimary rounded-sm gap-6 md:gap-12">
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 lg:max-w-3/4">
                     <p className="font-medium text-lg md:text-2xl">{project.title}</p>
                     <p>{project.description}</p>
                     <p><span className='font-semibold'>Technologies:</span>&emsp;{project.technologies}</p>
