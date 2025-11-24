@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion, type Easing } from "framer-motion";
 import Header from "../components/Header";
 import AboutMe from "./AboutMe";
@@ -13,6 +14,10 @@ export default function Landing() {
   const animationXStart: number = -10;
   const animationYStart: number = -10;
   const animationEase: Easing = "linear";
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="flex flex-col max-w-screen">

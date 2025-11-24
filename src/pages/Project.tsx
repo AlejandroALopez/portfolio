@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion, type Easing } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { projects, type ContentItem, type Project } from "../utils/projectData";
@@ -15,6 +16,10 @@ export default function ProjectPage() {
     const project: Project | undefined = projects.find(
         (p) => p.id.toLowerCase() === projectId?.toLowerCase()
     );
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     if (!project) {
         return <p className="text-center mt-20">Project not found.</p>;
@@ -42,7 +47,7 @@ export default function ProjectPage() {
                                 </p>
                             ) : contentItem.type === "image" ? (
                                 <div className="flex justify-center">
-                                    <img src={`../projectImages/${contentItem.imageIdentifier}`} alt={contentItem.imageIdentifier} className="lg:max-w-3/4 h-auto rounded-lg shadow-lg" />
+                                    <img src={`../projectImages/${contentItem.imageIdentifier}`} alt={contentItem.imageIdentifier} className="lg:max-w-1/2 h-auto rounded-lg shadow-lg" />
                                 </div>
                             ) : null}
                         </div>
