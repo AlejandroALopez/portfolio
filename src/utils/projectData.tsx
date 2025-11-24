@@ -1,19 +1,32 @@
-export interface Project {
+export interface IProject {
     id: string;
     title: string;
-    content: ContentItem[];
+    description: string,
+    technologies: string,
+    content: IContentItem[];
 }
 
-export interface ContentItem {
+export interface IContentItem {
     type: "text" | "image" | "subtitle";
     imageIdentifier?: string;
     textContent?: string;
 }
 
-export const projects: Project[] = [
+export const projects: IProject[] = [
+    {
+        id: "jls-systems-dashboard",
+        title: "JLS Systems Dashboard: Automated Checks For Company Software",
+        description: `Built an internal dashboard for JLS to monitor software services used by 
+        multiple departments, speeding fault detection and resolution.`,
+        technologies: "React, ASP.NET, TypeScript, C#",
+        content: []
+    },
     {
         id: "bayes-em",
         title: "BayesEM: A Mobile App For Disease Likelihood Computation",
+        description: `Worked in a DALI Lab team to build a mobile application that uses Bayesian 
+        inference and medical literature to speed up medical diagnoses.`,
+        technologies: "React Native, Flask, MongoDB, JavaScript, Python",
         content: [
             {
                 type: "image",
@@ -95,6 +108,9 @@ export const projects: Project[] = [
     {
         id: "eq2-app",
         title: "EQ2: An App To Support Staff Working With Trauma-Impacted Youth",
+        description: `Built an internal dashboard for JLS to monitor software services used by 
+        multiple departments, speeding fault detection and resolution.`,
+        technologies: "React Native, Node, Express, MongoDB, JavaScript",
         content: [
             {
                 type: "image",
@@ -153,6 +169,10 @@ export const projects: Project[] = [
     {
         id: "dali-flex-team",
         title: "Flex Team at DALI Lab",
+        description: `During my last term at Dartmouth, I was part of the DALI Flex Team: A small team
+        of senior developers and designers in which each member was deployed to support other DALI teams
+        that needed extra help to meet deadlines`,
+        technologies: "React, Node, Express, MongoDB, TypeScript, JavaScript",
         content: [
             {
                 type: "image",

@@ -2,41 +2,11 @@ import React from 'react';
 import { motion, type Easing } from "framer-motion";
 import { Link } from "react-router-dom";
 import HexagonIcon from '../assets/hexagonIcon.svg';
+import { projects, type IProject } from '../utils/projectData';
 
 interface ProjectItemProps {
     project: IProject
 }
-
-interface IProject {
-    id?: string,
-    title: string,
-    description: string,
-    technologies: string,
-}
-
-const projects: IProject[] = [
-    {
-        id: "jls-systems-dashboard",
-        title: "JLS Systems Dashboard: Automated Checks For Company Software",
-        description: `Built an internal dashboard for JLS to monitor software services used by 
-        multiple departments, speeding fault detection and resolution.`,
-        technologies: "React, ASP.NET, TypeScript, C#"
-    },
-    {
-        id: "bayes-em",
-        title: "BayesEM: A Mobile App For Disease Likelihood Computation",
-        description: `Worked in a DALI Lab team to build a mobile application that uses Bayesian 
-        inference and medical literature to speed up medical diagnoses.`,
-        technologies: "React Native, Flask, MongoDB, JavaScript, Python"
-    },
-    {
-        id: "eq2-app",
-        title: "EQ2: App For Lionheart Staff To Support Trauma-Impacted Youth",
-        description: `Built an internal dashboard for JLS to monitor software services used by 
-        multiple departments, speeding fault detection and resolution.`,
-        technologies: "React Native, Node, Express, MongoDB, JavaScript"
-    },
-]
 
 export default function CaseStudies() {
     const animationDelay: number = 0.2;
@@ -71,14 +41,13 @@ export default function CaseStudies() {
                 className="flex flex-col gap-2"
 
             >
-                {projects.map((project) => (
+                {projects.map((project: IProject) => (
                     <ProjectItem project={project} />
                 ))}
             </div>
         </section>
     );
 }
-
 
 
 const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => {

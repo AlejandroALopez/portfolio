@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion, type Easing } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { projects, type ContentItem, type Project } from "../utils/projectData";
+import { projects, type IContentItem, type IProject } from "../utils/projectData";
 import Header from "../components/Header";
 
 export default function ProjectPage() {
@@ -13,7 +13,7 @@ export default function ProjectPage() {
     const animationYStart: number = 0;
     const animationEase: Easing = "easeOut";
 
-    const project: Project | undefined = projects.find(
+    const project: IProject | undefined = projects.find(
         (p) => p.id.toLowerCase() === projectId?.toLowerCase()
     );
 
@@ -35,7 +35,7 @@ export default function ProjectPage() {
                 </div>
                 {/* Content Container */}
                 <div className="flex flex-col gap-12 mx-12 sm:mx-24 lg:mx-36 pb-24">
-                    {project.content.map((contentItem: ContentItem, index: number) => (
+                    {project.content.map((contentItem: IContentItem, index: number) => (
                         <div key={`${project.id}-${index}`}>
                             {contentItem.type === "text" ? (
                                 <p className="text-blackText text-md sm:text-lg font-medium text-justify">
