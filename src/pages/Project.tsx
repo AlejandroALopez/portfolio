@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { projects, type ContentItem, type Project } from "../utils/projectData";
 import Header from "../components/Header";
 
-
 export default function ProjectPage() {
     const { projectId } = useParams();
 
@@ -25,7 +24,7 @@ export default function ProjectPage() {
         <div className="flex flex-col max-w-screen">
             <Header />
             <section id="project-page" className="flex flex-col items-center min-h-screen bg-whiteBg gap-12">
-                <div className="flex flex-col w-full gap-2 lg:gap-4 my-12 text-blackText py-4 px-4 sm:px-12 lg:px-48 pt-12 lg:pt-24">
+                <div className="flex flex-col w-full gap-2 lg:gap-4 my-12 text-blackText px-4 sm:px-12 lg:px-48 pt-12 lg:pt-24">
                     <p className="font-medium text-lg text-grayText text-center">Portfolio</p>
                     <p className="font-medium text-3xl md:text-4xl text-center">{project.title}</p>
                 </div>
@@ -43,7 +42,7 @@ export default function ProjectPage() {
                                 </p>
                             ) : contentItem.type === "image" ? (
                                 <div className="flex justify-center">
-                                    <img src={contentItem.imageIdentifier} alt={contentItem.imageIdentifier} className="max-w-full h-auto rounded-lg shadow-lg" />
+                                    <img src={`../projectImages/${contentItem.imageIdentifier}`} alt={contentItem.imageIdentifier} className="lg:max-w-3/4 h-auto rounded-lg shadow-lg" />
                                 </div>
                             ) : null}
                         </div>
