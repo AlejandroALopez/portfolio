@@ -15,9 +15,19 @@ export default function Landing() {
   const animationYStart: number = -10;
   const animationEase: Easing = "linear";
 
+  // Scroll to section if header link was clicked from another page
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+          window.history.replaceState(null, "", "/");
+        }, 0);
+      }
+    }
+  }, []);
 
   // Open Reusume in new tab and set title
   const openResumeTab = () => {

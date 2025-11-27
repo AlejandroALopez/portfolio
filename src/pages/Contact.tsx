@@ -24,7 +24,6 @@ export default function Contact() {
     // send email to portfolio owner
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log('Sending email...');
         setButtonDisabled(true);
 
         emailjs
@@ -128,7 +127,7 @@ export default function Contact() {
                             transition duration-300 ${!buttonDisabled && "cursor-pointer"}`}
                     disabled={buttonDisabled}
                     type="submit"
-                    initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+                    initial={{ opacity: 0, y: 0, x: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
                     transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 5 }}
                     viewport={{ once: true, amount: 0.2 }}
