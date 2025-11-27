@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { motion, type Easing } from "framer-motion";
+import { contactLinks } from "../utils/constants";
 import mailIcon from '../assets/mail.svg';
 import linkedinIcon from '../assets/linkedin.svg';
 import githubIcon from '../assets/github.svg';
 
 export default function Contact() {
-    const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [message, setMessage] = useState<string>("");
+    const form = useRef<HTMLFormElement>(null);
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     const animationDelay: number = 0.2;
     const animationDuration: number = 0.4;
@@ -15,18 +18,22 @@ export default function Contact() {
     const animationYStart: number = 0;
     const animationEase: Easing = "easeOut";
 
-    const contactLinks: { [key: string]: string } = {
-        github: "https://github.com/AlejandroALopez",
-        linkedIn: "https://www.linkedin.com/in/alejandro-a-lopez",
-        email: "alejandro.a.lopez.0907@gmail.com"
-    }
-
     // send email to portfolio owner
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log("Name: ", name);
-        console.log("Email: ", email);
-        console.log("Message: ", message);
+
+        emailjs
+            .sendForm(serviceId, templateId, form.current!, {
+                publicKey: publicKey,
+            })
+            .then(
+                () => {
+                    console.log('Email sent successfully!');
+                },
+                (error) => {
+                    console.log('Email failed to send: ', error.text);
+                },
+            );
     }
 
     return (
@@ -55,7 +62,7 @@ export default function Contact() {
                     </div>
                 </div>
                 {/* Form fields */}
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form ref={form} onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <motion.div
                         className="flex flex-col gap-1"
                         initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
@@ -67,9 +74,8 @@ export default function Contact() {
                         <input
                             className="border sm:border-2 border-black rounded-sm p-2"
                             type="text"
+                            name="name"
                             required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
                         />
                     </motion.div>
                     <motion.div
@@ -83,9 +89,8 @@ export default function Contact() {
                         <input
                             className="border sm:border-2 border-black rounded-sm p-2"
                             type="email"
+                            name="email"
                             required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </motion.div>
                     <motion.div
@@ -99,9 +104,8 @@ export default function Contact() {
                         <textarea
                             className="border sm:border-2 border-black rounded-sm p-2"
                             rows={6}
+                            name="message"
                             required
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
                         />
                     </motion.div>
                     <motion.button
