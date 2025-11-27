@@ -21,7 +21,7 @@ export default function ProjectPage() {
     return (
         <div className="flex flex-col max-w-screen">
             <Header />
-            <section id="project-page" className="flex flex-col items-center min-h-screen bg-whiteBg gap-12">
+            <section id="project-page" className="flex flex-col items-center min-h-screen bg-whiteBg">
                 <div className="flex flex-col w-full gap-2 lg:gap-4 my-12 text-blackText px-4 sm:px-12 lg:px-48 pt-12 lg:pt-24">
                     <p className="font-medium text-lg text-grayText text-center">Portfolio</p>
                     <p className="font-medium text-3xl md:text-4xl text-center">{project.title}</p>
