@@ -42,7 +42,7 @@ export default function CaseStudies() {
 
             >
                 {projects.map((project: IProject) => (
-                    <ProjectItem project={project} />
+                    <ProjectItem key={project.id} project={project} />
                 ))}
             </div>
         </section>

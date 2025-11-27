@@ -92,7 +92,7 @@ export default function Skills() {
                 viewport={{ once: true, amount: 0.2 }}
             >
                 {skills.map((skill) => (
-                    <SkillItem skill={skill} />
+                    <SkillItem key={skill.title} skill={skill} />
                 ))}
             </motion.div>
         </section>

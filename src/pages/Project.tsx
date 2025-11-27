@@ -1,17 +1,10 @@
 import { useEffect } from "react";
-import { motion, type Easing } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { projects, type IContentItem, type IProject } from "../utils/projectData";
 import Header from "../components/Header";
 
 export default function ProjectPage() {
     const { projectId } = useParams();
-
-    const animationDelay: number = 0.2;
-    const animationDuration: number = 0.4;
-    const animationXStart: number = 25;
-    const animationYStart: number = 0;
-    const animationEase: Easing = "easeOut";
 
     const project: IProject | undefined = projects.find(
         (p) => p.id.toLowerCase() === projectId?.toLowerCase()
