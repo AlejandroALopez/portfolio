@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { motion, type Easing } from "framer-motion";
 import { contactLinks } from "../utils/constants";
@@ -12,6 +12,9 @@ export default function Contact() {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    const [buttonText, setButtonText] = useState<string>("Send Message");
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
+
     const animationDelay: number = 0.2;
     const animationDuration: number = 0.4;
     const animationXStart: number = 25;
@@ -21,6 +24,8 @@ export default function Contact() {
     // send email to portfolio owner
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        console.log('Sending email...');
+        setButtonDisabled(true);
 
         emailjs
             .sendForm(serviceId, templateId, form.current!, {
@@ -29,11 +34,21 @@ export default function Contact() {
             .then(
                 () => {
                     console.log('Email sent successfully!');
+                    setButtonText("Email sent!");
+                    setTimeout(() => {
+                        setButtonText("Send Message");
+                    }, 3000);
                 },
                 (error) => {
                     console.log('Email failed to send: ', error.text);
+                    setButtonText("Could not send email");
+                    setTimeout(() => {
+                        setButtonText("Send Message");
+                    }, 3000);
                 },
             );
+
+        setButtonDisabled(false);
     }
 
     return (
@@ -72,7 +87,7 @@ export default function Contact() {
                     >
                         <p className="text-lg md:text-xl">Name</p>
                         <input
-                            className="border sm:border-2 border-black rounded-sm p-2"
+                            className="border sm:border-2 border-black rounded-sm p-2 focus:outline-none"
                             type="text"
                             name="name"
                             required
@@ -87,7 +102,7 @@ export default function Contact() {
                     >
                         <p className="text-lg md:text-xl">Email</p>
                         <input
-                            className="border sm:border-2 border-black rounded-sm p-2"
+                            className="border sm:border-2 border-black rounded-sm p-2 focus:outline-none"
                             type="email"
                             name="email"
                             required
@@ -102,60 +117,62 @@ export default function Contact() {
                     >
                         <p className="text-lg md:text-xl">Message</p>
                         <textarea
-                            className="border sm:border-2 border-black rounded-sm p-2"
+                            className="border sm:border-2 border-black rounded-sm p-2 focus:outline-none"
                             rows={6}
                             name="message"
                             required
                         />
                     </motion.div>
                     <motion.button
-                        className="w-full border sm:border-2 border-black rounded-sm p-4 mt-4 cursor-pointer"
-                        type="submit"
-                        initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
-                        whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-                        transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 5 }}
-                        viewport={{ once: true, amount: 0.2 }}
+                        className={`w-full border sm:border-2 border-black rounded-sm p-4 mt-4 hover:bg-blackBg font-medium hover:text-whiteText
+                            transition duration-300 ${!buttonDisabled && "cursor-pointer"}`}
+                    disabled={buttonDisabled}
+                    type="submit"
+                    initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+                    transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 5 }}
+                    viewport={{ once: true, amount: 0.2 }}
                     >
-                        Send Message
-                    </motion.button>
-                </form>
-            </div>
-            {/* Right side */}
-            <div className="flex flex-row lg:flex-col max-lg:justify-center gap-4 text-md lg:text-lg">
-                <motion.a
-                    href={`mailto:${contactLinks.email}`}
-                    className="flex flex-row gap-3 cursor-pointer"
-                    initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
-                    whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-                    transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    <img src={mailIcon} alt="mail" />
-                    <p className="text-blackText hover:text-blackText visited:text-blackText font-normal">Email</p>
-                </motion.a>
-                <motion.button
-                    onClick={() => window.open(contactLinks.github, '_blank')}
-                    className="flex flex-row gap-3 cursor-pointer appearance-none"
-                    initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
-                    whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-                    transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2.25 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    <img src={githubIcon} alt="github" />
-                    <p>GitHub</p>
+                    {buttonText}
                 </motion.button>
-                <motion.button
-                    onClick={() => window.open(contactLinks.linkedIn, '_blank')}
-                    className="flex flex-row gap-3 cursor-pointer"
-                    initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
-                    whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
-                    transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2.5 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                >
-                    <img src={linkedinIcon} alt="linkedin" />
-                    <p>LinkedIn</p>
-                </motion.button>
-            </div>
-        </section>
+            </form>
+        </div>
+            {/* Right side */ }
+    <div className="flex flex-row lg:flex-col max-lg:justify-center gap-4 text-md lg:text-lg">
+        <motion.a
+            href={`mailto:${contactLinks.email}`}
+            className="flex flex-row gap-3 cursor-pointer"
+            initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2 }}
+            viewport={{ once: true, amount: 0.2 }}
+        >
+            <img src={mailIcon} alt="mail" />
+            <p className="text-blackText hover:text-blackText visited:text-blackText font-normal">Email</p>
+        </motion.a>
+        <motion.button
+            onClick={() => window.open(contactLinks.github, '_blank')}
+            className="flex flex-row gap-3 cursor-pointer appearance-none"
+            initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2.25 }}
+            viewport={{ once: true, amount: 0.2 }}
+        >
+            <img src={githubIcon} alt="github" />
+            <p>GitHub</p>
+        </motion.button>
+        <motion.button
+            onClick={() => window.open(contactLinks.linkedIn, '_blank')}
+            className="flex flex-row gap-3 cursor-pointer"
+            initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 2.5 }}
+            viewport={{ once: true, amount: 0.2 }}
+        >
+            <img src={linkedinIcon} alt="linkedin" />
+            <p>LinkedIn</p>
+        </motion.button>
+    </div>
+        </section >
     );
 }
