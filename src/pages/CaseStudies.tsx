@@ -16,10 +16,10 @@ export default function CaseStudies() {
     const animationEase: Easing = "easeOut";
 
     return (
-        <section id="caseStudies" className="flex flex-col min-h-screen bg-blackBg gap-4 p-12 pb-24">
+        <section id="caseStudies" className="flex flex-col min-h-screen bg-blackBg text-whiteText gap-4 p-12 pb-24">
             <div className="flex flex-col gap-6 mt-12">
                 <motion.p
-                    className="font-medium text-3xl md:text-4xl"
+                    className="font-medium text-3xl md:text-4xl text-whiteText"
                     initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
                     whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
                     transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 0 }}
@@ -28,7 +28,7 @@ export default function CaseStudies() {
                     Case Studies
                 </motion.p>
                 <motion.p
-                    className="max-w-9/12 text-md md:text-lg"
+                    className="max-w-9/12 text-md md:text-lg text-whiteText"
                     initial={{ opacity: 0, y: animationYStart, x: animationXStart, scale: 0.98 }}
                     whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
                     transition={{ duration: animationDuration, ease: animationEase, delay: animationDelay * 1 }}

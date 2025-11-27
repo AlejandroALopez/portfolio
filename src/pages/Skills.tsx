@@ -72,7 +72,7 @@ export default function Skills() {
     const animationEase: Easing = "easeOut";
 
     return (
-        <section id="skills" className="flex flex-col min-h-screen bg-blueBg p-6 md:p-12 pb-24 gap-6 md:gap-12">
+        <section id="skills" className="flex flex-col min-h-screen bg-blueBg text-whiteText p-6 md:p-12 pb-24 gap-6 md:gap-12">
             <div className="flex flex-col mt-12">
                 <motion.p
                     className="font-medium text-3xl md:text-4xl"
